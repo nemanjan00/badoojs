@@ -1,0 +1,14 @@
+{
+  "name": "badoojs",
+  "version": "1.0.0",
+  "description": "Node.JS Badoo automation library",
+  "main": "badoo.js",
+  "repository": "https://github.com/nemanjan00/badoojs",
+  "author": "Nemanja Nedeljković <nemanjan00@gmail.com> (https://nemanja.top/)",
+  "license": "MIT",
+  "dependencies": {
+    "combistack-chrome": "^1.0.2",
+    "node-localstorage": "^1.3.0",
+    "request": "^2.79.0"
+  }
+}
