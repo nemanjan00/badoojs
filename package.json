@@ -1,6 +1,6 @@
 {
   "name": "badoojs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node.JS Badoo automation library",
   "main": "badoo.js",
   "repository": "https://github.com/nemanjan00/badoojs",
