@@ -53,12 +53,186 @@ module.exports = function(cookies){
 		getUsers: function(page = 0){
 			var url = "/api.phtml?SERVER_GET_USER_LIST_WITH_SETTINGS";
 
-			body = {"version":1,"message_type":416,"message_id":24,"body":[{"message_type":502,"server_get_search_settings":{"context_type":2}},{"message_type":245,"server_get_user_list":{"folder_id":25,"user_field_filter":{"projection":[250,200,210,230,310,330,530,540,340,331,680,290,291,301,303,304,302,260],"profile_photo_size":{"square_face_photo_size":{"width":180,"height":180}}},"offset":page*100,"preferred_count":100,"promo_block_request_params":[{"count":1,"position":2},{"count":1,"position":1}],"filter":[0]}}]};
+			body = {
+				"version": 1,
+				"message_type": 416,
+				"message_id": 24,
+				"body": [
+					{
+						"message_type":245,
+						"server_get_user_list": {
+							"folder_id": 25,
+							"user_field_filter":{
+								"projection":[
+									10, 
+									20, 
+									30, 
+									40, 
+									50, 
+									60, 
+									70, 
+									80, 
+									90, 
+									91, 
+									92, 
+									93, 
+									100, 
+									110, 
+									200, 
+									210, 
+									220, 
+									221, 
+									230, 
+									240, 
+									250, 
+									260, 
+									270, 
+									280, 
+									290, 
+									291, 
+									300, 
+									301, 
+									302, 
+									303, 
+									304, 
+									305, 
+									310, 
+									311, 
+									320, 
+									330, 
+									331, 
+									332, 
+									340, 
+									350, 
+									360, 
+									370, 
+									380, 
+									381, 
+									400, 
+									410, 
+									420, 
+									430, 
+									431, 
+									432, 
+									440, 
+									460, 
+									470, 
+									471, 
+									480, 
+									490, 
+									491, 
+									492, 
+									500, 
+									501, 
+									510, 
+									511, 
+									512, 
+									513, 
+									520, 
+									530, 
+									540, 
+									550, 
+									560, 
+									570, 
+									580, 
+									581, 
+									582, 
+									583, 
+									584, 
+									585, 
+									590, 
+									591, 
+									592, 
+									600, 
+									610, 
+									611, 
+									620, 
+									630, 
+									640, 
+									641, 
+									642, 
+									650, 
+									660, 
+									670, 
+									680, 
+									681, 
+									690, 
+									691, 
+									692, 
+									693, 
+									700, 
+									705, 
+									710, 
+									720, 
+									730, 
+									731, 
+									732, 
+									740, 
+									741, 
+									742, 
+									750, 
+									759, 
+									760, 
+									761, 
+									762, 
+									763, 
+									764, 
+									770, 
+									780, 
+									781, 
+									790, 
+									800, 
+									801, 
+									810, 
+									820, 
+									830, 
+									840, 
+									850, 
+									860, 
+									870, 
+									871, 
+									880, 
+									890, 
+									900, 
+									910, 
+									911, 
+									920, 
+									1000, 
+									1100, 
+									1110, 
+									1120
+								],
+								"profile_photo_size":{
+									"square_face_photo_size":{
+										"width":180,
+										"height":180
+									}
+								}
+							},
+							"offset":page*1000,
+							"preferred_count":1000,
+							"promo_block_request_params":[
+								{
+									"count":1,
+									"position":2
+								},
+								{
+									"count":1,
+									"position":1
+								}
+							],
+							"filter":[
+								0
+							]
+						}
+					}
+				]
+			};
 
 			var promise = new Promise(function(resolve, reject) {
 				badoo._sendRequest(url, body).then(function(users){
-					var page_count = users.body[1].client_user_list.total_count / 100;
-					users = users.body[1].client_user_list.section[0].users;
+					var page_count = users.body[0].client_user_list.total_count / 1000;
+					users = users.body[0].client_user_list.section[0].users;
 
 					if(page == 0){
 						promises = [];
